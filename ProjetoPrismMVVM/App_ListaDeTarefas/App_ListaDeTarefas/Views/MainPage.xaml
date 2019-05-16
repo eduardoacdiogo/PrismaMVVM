@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App_ListaDeTarefas.Views.MainPage"
+             Title="{Binding Title}">
+
+    <StackLayout>
+
+        <StackLayout HeightRequest="250" BackgroundColor="Blue" Padding="10">
+            <Label Text="Meu dia" FontSize="24" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            <Label Text="Quinta, 22/01" TextColor="White" VerticalOptions="End" HorizontalOptions="Start" FontSize="14"/>
+
+        </StackLayout>
+
+        <StackLayout x:Name="SLTarefas" Padding="10" Spacing="10">
+            <StackLayout Orientation="Horizontal" Spacing="15">
+                <Image Source="checkOff.png" VerticalOptions="Center"/>
+                <Label VerticalOptions="Center" HorizontalOptions="FillAndExpand" Text="Task 1" />
+                <Image Source="ponto vermelho.png" VerticalOptions="Center"/>
+                <Image Source="delete.png" VerticalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Spacing="15">
+                <Image Source="checkOff.png" VerticalOptions="Center"/>
+                <Label VerticalOptions="Center" HorizontalOptions="FillAndExpand" Text="Task 2" />
+                <Image Source="ponto verde.png" VerticalOptions="Center"/>
+                <Image Source="delete.png" VerticalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Spacing="15">
+                <Image Source="checkOn.png"/>
+
+                <StackLayout VerticalOptions="Center" Spacing="0" HorizontalOptions="FillAndExpand">
+                    <Label Text="Task 3" TextColor="Gray"/>
+                    <Label Text="Finalizado em 20/01/2018 / 17:00h" TextColor="Gray" FontSize="10"/>
+                </StackLayout>
+                <Image Source="ponto laranja.png" VerticalOptions="Center"/>
+                <Image Source="delete.png" VerticalOptions="Center"/>
+            </StackLayout>
+          
+            <StackLayout Orientation="Horizontal" Spacing="15">
+                <Image Source="checkOff.png" VerticalOptions="Center"/>
+                <Label VerticalOptions="Center" HorizontalOptions="FillAndExpand" Text="Task 4" />
+                <Image Source="ponto amarelo.png" VerticalOptions="Center"/>
+                <Image Source="delete.png" VerticalOptions="Center"/>
+            </StackLayout>
+        </StackLayout>
+        
+        <StackLayout>
+            <Button BackgroundColor="Transparent" HorizontalOptions="Center" Command="{Binding ClickNavigationCommand}">
+                <Button.Image>
+                    <OnPlatform x:TypeArguments="FileImageSource">
+                        <On Platform ="Android, IOS" Value="addBotao.png"/>
+                        <On Platform = "UWP" Value="addBotao.png"/>
+                    </OnPlatform>
+                </Button.Image>
+            </Button>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

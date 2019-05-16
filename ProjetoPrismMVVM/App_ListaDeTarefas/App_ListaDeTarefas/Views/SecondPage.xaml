@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="App_ListaDeTarefas.Views.SecondPage"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+
+        <Label Text="Nome" FontAttributes="Bold" />
+        <Entry Text="{Binding TxtNome}"/>
+        <Label Text="Prioridade" FontAttributes="Bold" FontSize="18" HorizontalOptions="Center"/>
+
+            <StackLayout  x:Name="{Binding SLPrioridades}" Spacing="10">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="ponto vermelho.png"/>
+                    <Label Text="Urgente e importante" HorizontalOptions="FillAndExpand"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="PrioridadeSelectAction"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Spacing="10">
+                    <Image Source="ponto laranja.png"/>
+                    <Label Text="Urgente e não importante" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+
+                <StackLayout Spacing="10" Orientation="Horizontal">
+                    <Image Source="ponto amarelo.png"/>
+                    <Label Text="Não urgente e importante" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+
+                <StackLayout Spacing="10" Orientation="Horizontal">
+                    <Image Source="ponto verde.png"/>
+                    <Label Text="Não urgente e não importante" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+
+            </StackLayout>
+        
+            <Button Text="OK" TextColor="White" BackgroundColor="Blue" HorizontalOptions="End" Padding="10"/>
+    </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+    
