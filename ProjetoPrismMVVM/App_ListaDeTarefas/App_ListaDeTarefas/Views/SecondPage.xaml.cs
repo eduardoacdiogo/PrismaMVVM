@@ -2,16 +2,28 @@
 using System;
 using Xamarin.Forms;
 using App_ListaDeTarefas.Modelos;
+using Prism.Commands;
+using Prism.Navigation;
 
 namespace App_ListaDeTarefas.Views
 {
     public partial class SecondPage : ContentPage
     {
+        #region Command
+        public DelegateCommand ClickNavigationCommand { get; set; }
+        INavigationService _navigationService;
+        #endregion
         private IPageDialogService _dialogService;
         private byte Prioridade { get; set; }
-        public SecondPage(IPageDialogService dialogService)
+        public SecondPage(IPageDialogService dialogService, INavigationService navigationService)
         {
+            _navigationService = navigationService;
+            ClickNavigationCommand = new DelegateCommand(ExecuteClickNavigationCommand);
             _dialogService = dialogService;
+        }
+        private void ExecuteClickNavigationCommand()
+        {
+            _navigationService.NavigateAsync("MainPage");
         }
         private void TapGestureRecognizer_Tapped(object sender, System.EventArgs e)
         {
@@ -57,7 +69,8 @@ namespace App_ListaDeTarefas.Views
 
                 new GerenciadorTarefa().Salvar(tarefa);
 
-                App.Current.MainPage = new NavigationPage(new MainPage());
+                ExecuteClickNavigationCommand();
+                //App.Current.MainPage = new NavigationPage(new MainPage());
             }
         }
     }

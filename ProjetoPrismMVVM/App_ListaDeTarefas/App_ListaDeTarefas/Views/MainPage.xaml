@@ -130,7 +130,7 @@
         </StackLayout>
         
         <StackLayout>
-            <Button BackgroundColor="Transparent" HorizontalOptions="Center" Clicked="ActionGoSecondPage">
+            <Button BackgroundColor="Transparent" HorizontalOptions="Center" Command="{Binding ClickNavigationCommand}">
                 <Button.Image>
                     <OnPlatform x:TypeArguments="FileImageSource">
                         <On Platform ="Android, IOS" Value="addBotao.png"/>

@@ -10,17 +10,23 @@ using System.Globalization;
 using App_ListaDeTarefas.Modelos;
 using Prism.Services;
 using Prism.Navigation;
+using Prism.Commands;
 
 namespace App_ListaDeTarefas.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
+        public DelegateCommand ClickNavigationCommand { get; set; }
+
         INavigationService _navigationService;
+
         private IPageDialogService _dialogService;
         public MainPage(INavigationService navigationService, IPageDialogService dialogService)
         {
             InitializeComponent();
+
+            ClickNavigationCommand = new DelegateCommand(ExecuteClickNavigationCommand);
 
             _dialogService = dialogService;
 
@@ -34,10 +40,16 @@ namespace App_ListaDeTarefas.Views
                        
             CarregarTarefas();
         }
-        public void ActionGoSecondPage(object sender, EventArgs args)
+
+        private void ExecuteClickNavigationCommand()
+        {
+            _navigationService.NavigateAsync("SecondPage");
+        }
+
+        /*public void ActionGoSecondPage(object sender, EventArgs args)
         {
             Navigation.PushAsync(new SecondPage());
-        }
+        }*/
 
         private void CarregarTarefas()
         {

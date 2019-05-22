@@ -47,7 +47,7 @@
 
             </StackLayout>
 
-            <Button Clicked="SalvarAction" Text="OK" TextColor="White" BackgroundColor="Blue" HorizontalOptions="End" Padding="10"/>
+            <Button Command="{Binding ClickNavigationCommand}" Clicked="SalvarAction" Text="OK" TextColor="White" BackgroundColor="Blue" HorizontalOptions="End" Padding="10"/>
          </StackLayout>
     </ContentPage.Content>
 </ContentPage>
