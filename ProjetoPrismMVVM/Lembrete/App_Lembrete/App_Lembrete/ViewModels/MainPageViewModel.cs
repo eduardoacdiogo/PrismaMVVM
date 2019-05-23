@@ -11,10 +11,13 @@ using Xamarin.Forms.Xaml;
 using System.Globalization;
 using NavigationParameters = Prism.Navigation.NavigationParameters;
 using App_Lembrete.Models;
+using App_Lembrete.Views;
+using System.Threading.Tasks;
 
 namespace App_Lembrete.ViewModels
 {
-    public class MainPageViewModel : ViewModelBase
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public class MainPageViewModel : ContentPage
     {
         #region Global 
         INavigationService _navigationService;
@@ -25,16 +28,9 @@ namespace App_Lembrete.ViewModels
         #endregion
 
         public MainPageViewModel(INavigationService navigationService)
-            : base(navigationService)
         {
             _navigationService = navigationService;
             Title = "Bem Vindo ao Nosso APP";
-            ClickNavigationCommand = new DelegateCommand(ExecuteClickNavigationCommand);
-        }
-
-        public void ExecuteClickNavigationCommand()
-        {
-            _navigationService.NavigateAsync("PrimeiraPage");
         }
     }
 }

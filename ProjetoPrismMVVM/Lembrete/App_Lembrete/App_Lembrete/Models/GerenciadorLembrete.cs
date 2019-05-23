@@ -28,9 +28,10 @@ namespace App_Lembrete.Models
         public void Finalizar(int index, Lembrete lembrete)
         {
             Lista = Listagem();
+            lembrete.DataFinalizacao = DateTime.Now;
             Lista.RemoveAt(index);
             Lista.Add(lembrete);
-
+            
             SalvarNoProperties(Lista);
         }
 
@@ -41,12 +42,12 @@ namespace App_Lembrete.Models
 
         private void SalvarNoProperties(List<Lembrete> Lista)
         {
-            if (App.Current.Properties.ContainsKey("Tarefas"))
+            if (App.Current.Properties.ContainsKey("Lembrete"))
             {
-                App.Current.Properties.Remove("Tarefas");
+                App.Current.Properties.Remove("Lembrete");
             }
             string JsonVal = JsonConvert.SerializeObject(Lista);
-            App.Current.Properties.Add("Tarefas", JsonVal);
+            App.Current.Properties.Add("Lembrete", JsonVal);
         }
 
         private List<Lembrete> ListagemNoProperties()
@@ -55,7 +56,7 @@ namespace App_Lembrete.Models
 
             if (App.Current.Properties.ContainsKey("Lembrete"))
             {
-                String JsonVal = (String)App.Current.Properties["Tarefas"];
+                String JsonVal = (String)App.Current.Properties["Lembrete"];
                 List<Lembrete> Lista = JsonConvert.DeserializeObject<List<Lembrete>>(JsonVal);
                 return Lista;
             }

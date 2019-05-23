@@ -4,8 +4,16 @@
              x:Class="App_Lembrete.Views.MainPage"
              Title="{Binding Title}">
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Button Text="Entrar" HorizontalOptions="Start" VerticalOptions="Center" Command="{Binding ClickNavigationCommand}" />
-    </StackLayout>
+    <ContentPage.Content>
 
+        <StackLayout>
+
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="30">
+                <Button Text="Lista de Lembretes" HorizontalOptions="Center" VerticalOptions="Center" Clicked="ActionGoLembretes" Padding="10"/>
+                
+                <Button Text="Consultar CEP" HorizontalOptions="Center" VerticalOptions="Center" Clicked="ActionGoConsultarCep" Padding="10"/>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

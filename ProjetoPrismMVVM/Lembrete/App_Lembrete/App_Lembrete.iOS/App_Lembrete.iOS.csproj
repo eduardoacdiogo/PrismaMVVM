@@ -201,5 +201,17 @@
       <Name>App_Lembrete</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\adicionar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\feito.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lixeira.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\naofeito.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
