@@ -50,10 +50,8 @@ namespace App_Lembrete.Models
             App.Current.Properties.Add("Lembrete", JsonVal);
         }
 
-        private List<Lembrete> ListagemNoProperties()
-
+        private List<Lembrete> ListagemNoProperties()            
         {
-
             if (App.Current.Properties.ContainsKey("Lembrete"))
             {
                 String JsonVal = (String)App.Current.Properties["Lembrete"];

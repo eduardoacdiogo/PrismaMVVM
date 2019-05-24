@@ -23,8 +23,7 @@
 
                 <Entry Placeholder="dia" x:Name="dataDia" WidthRequest="20"/>
                 <Entry Placeholder="mes" x:Name="dataMes" WidthRequest="20"/>
-                <Entry Placeholder="ano" x:Name="dataAno" WidthRequest="20"/>
-                    
+
             </StackLayout>
             
             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="30">

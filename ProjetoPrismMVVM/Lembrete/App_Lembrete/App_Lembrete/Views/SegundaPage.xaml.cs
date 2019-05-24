@@ -23,37 +23,57 @@ namespace App_Lembrete.Views
         }
         public void ActionGoSalvar(object sender, EventArgs args)
         {
-            bool ErroExiste = false;
-            if (!(TxtNome.Text.Trim().Length > 0))
-            {                
-                ErroExiste = true;
+            //bool ErroExiste = true;
+
+            /*if (Dados(TxtNome.Text.Trim()))
+            {*/
+                try
+                {
+                    Lembrete lembrete = new Lembrete();
+
+                    if (!(TxtNome.Text.Trim().Length > 0))
+                    {
+                        DisplayAlert("ERRO", "Titulo não preenchido", "OK");
+                    }
+                    else
+                    {
+                        if (!(TxtDescricao.Text.Trim().Length > 0))
+                        {
+                            lembrete.Descricao = " ";
+                        }
+                        if (!(dataDia.Text.Trim().Length > 0))
+                        {
+                            lembrete.Dia = " ";
+                            lembrete.Mes = " ";
+                        }
+
+                        lembrete.Titulo = TxtNome.Text.Trim();
+                        lembrete.Descricao = TxtDescricao.Text.Trim();
+                        lembrete.Dia = dataDia.Text.Trim();
+                        lembrete.Mes = dataMes.Text.Trim();
+
+                        new GerenciadorLembrete().Salvar(lembrete);
+
+                        App.Current.MainPage = new NavigationPage(new PrimeiraPage());
+                    }
+                }
+                catch (Exception e)
+                {
+                    DisplayAlert("ERRO CRÍTICO", e.Message, "OK");
+                }
+            //}
+        }
+        /*private bool Dados(string TxtNome)
+        {
+            bool ErroExiste = true;
+
+            if (!(TxtNome.Trim().Length > 0))
+            { 
+                ErroExiste = false;
                 DisplayAlert("ERRO", "Titulo não preenchido", "OK");
             }
-            if (ErroExiste == false)
-            {
-                //Salva esses dados.
-
-                Lembrete lembrete = new Lembrete();
-                if(!(TxtDescricao.Text.Trim().Length > 0))
-                {
-                    lembrete.Descricao = " ";
-                }
-                if (!(dataDia.Text.Trim().Length > 0))
-                {
-                    lembrete.Dia = "0";
-                    lembrete.Mes = "0";
-                    lembrete.Ano = "0";
-                }
-                lembrete.Titulo = TxtNome.Text.Trim();
-                lembrete.Descricao = TxtDescricao.Text.Trim();
-                lembrete.Dia = dataDia.Text.Trim();
-                lembrete.Mes = dataMes.Text.Trim();
-                lembrete.Ano = dataAno.Text.Trim();
-
-                new GerenciadorLembrete().Salvar(lembrete);
-
-                App.Current.MainPage = new NavigationPage(new PrimeiraPage());
-            }
-        }
+            return ErroExiste;
+        }*/    
+        
     }
 }

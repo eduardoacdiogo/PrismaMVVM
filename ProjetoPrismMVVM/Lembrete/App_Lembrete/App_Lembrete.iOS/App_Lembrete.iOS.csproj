@@ -213,5 +213,8 @@
   <ItemGroup>
     <BundleResource Include="Resources\naofeito.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\correios.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

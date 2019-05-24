@@ -105,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="adicionar.png" />
+    <Content Include="correios.jpg" />
     <Content Include="feito.png" />
     <Content Include="lixeira.png" />
     <Content Include="naofeito.png" />

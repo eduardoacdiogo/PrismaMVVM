@@ -64,10 +64,15 @@ namespace App_Lembrete.Views
             Lixeira.GestureRecognizers.Add(LixeiraTap);
 
             View StackCentral = null;
+            //View StackCentralDescricao = null;
 
             if (lembrete.DataFinalizacao == null)
             {
-                StackCentral = new Label() { VerticalOptions = LayoutOptions.Center, HorizontalOptions = LayoutOptions.FillAndExpand, Text = lembrete.Titulo };
+                //StackCentral = new Label() { VerticalOptions = LayoutOptions.Center, HorizontalOptions = LayoutOptions.FillAndExpand, Text = lembrete.Titulo };
+                StackCentral = new StackLayout() { VerticalOptions = LayoutOptions.Center, Spacing = 0, HorizontalOptions = LayoutOptions.FillAndExpand };
+                ((StackLayout)StackCentral).Children.Add(new Label() { Text = lembrete.Titulo, TextColor = Color.Black });
+                ((StackLayout)StackCentral).Children.Add(new Label() { Text = "Descrição: " + lembrete.Descricao, TextColor = Color.Black, FontSize = 10 });
+                ((StackLayout)StackCentral).Children.Add(new Label() { Text = "Data: " + lembrete.Dia + " / " + lembrete.Mes, TextColor = Color.Black, FontSize = 10 });
             }
             else
             {
@@ -96,7 +101,6 @@ namespace App_Lembrete.Views
             TapGestureRecognizer CheckTap = new TapGestureRecognizer();
 
             CheckTap.Tapped += delegate
-
             {
                 new GerenciadorLembrete().Finalizar(index, lembrete);
                 CarregarLembretes();

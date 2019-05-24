@@ -25,6 +25,7 @@
                         </Image.Source>
                     </Image>
                     <Label VerticalOptions="Center" HorizontalOptions="FillAndExpand" Text="Sua lista de lembretes" />
+                    <Label VerticalOptions="Center" HorizontalOptions="FillAndExpand" Text="Sua lista de lembretes" />
                     <Image VerticalOptions="Center">
                         <Image.Source>
                             <OnPlatform x:TypeArguments="ImageSource">
